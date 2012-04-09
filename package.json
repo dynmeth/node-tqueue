@@ -7,7 +7,14 @@
     "type": "git",
     "url": "git://github.com/dynmeth/node-tqueue.git"
   },
-  "main": "lib/queue",
+  "keywords": {
+    "queue",
+    "timer",
+    "interval",
+    "throttle",
+    "fifo"
+  },
+  "main": "lib/tqueue",
   "engines": {
     "node": "~0.6.11"
   },
