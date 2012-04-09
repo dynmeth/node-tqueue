@@ -2,7 +2,7 @@
   "author": "David Howell <david@dynamicmethods.com.au>",
   "name": "tqueue",
   "description": "a basic queue that pops on a set interval",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/dynmeth/node-tqueue.git"
@@ -15,11 +15,17 @@
     "fifo"
   ],
   "main": "lib/tqueue",
+  "scripts": {
+    "test": "make test"
+  },
   "license": "MIT",
   "engines": {
     "node": "~0.6.11"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "should": "*",
+    "mocha": "*"
+  },
   "optionalDependencies": {}
 }
