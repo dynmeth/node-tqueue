@@ -1,0 +1,17 @@
+{
+  "author": "David Howell <david@dynamicmethods.com.au>",
+  "name": "tqueue",
+  "description": "Basic queue that pops on a set interval",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dynmeth/node-tqueue.git"
+  },
+  "main": "lib/queue",
+  "engines": {
+    "node": "~0.6.11"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
