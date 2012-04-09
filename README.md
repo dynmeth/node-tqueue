@@ -4,7 +4,7 @@ _tqueue_ is a simple first in, first out (FIFO) queue that pops its items on a r
 
 ## Example
 
-    var TQueue = require('../lib/tqueue');
+    var TQueue = require('tqueue');
 
 	var t = Date.now();
 	var q = new TQueue(1000);
