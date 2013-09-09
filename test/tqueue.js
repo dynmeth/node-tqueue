@@ -71,4 +71,40 @@ describe('tqueue', function() {
 			}
 		});
 	});
+
+    describe('#variable delay', function() {
+		it('should return variable delay in increments of ~1000', function(done) {
+			this.timeout(3000);
+
+			var q = new TQueue();
+			var i = 0;
+			var d = 0;
+
+			q.push(1);
+			q.push(2);
+			q.push(3);
+
+			q.on('pop', function() {
+				switch(i) {
+					case 0:
+				    	d = Date.now();
+						i++;
+						break;
+					case 1:
+						d = Date.now() - d;
+						d.should.be.within(995, 1005);
+						done();
+						break;
+					case 2:
+						d = Date.now() - d;
+						d.should.be.within(1995, 2005);
+						done();
+						break;
+				}
+			});
+		});
+	});
+
+
+
 });
