@@ -74,7 +74,7 @@ describe('tqueue', function() {
 
     describe('#variable delay', function() {
 		it('should return variable delay in increments of ~1000', function(done) {
-			this.timeout(3000);
+			this.timeout(10000);
 
 			var q = new TQueue();
 			var i = 0;
@@ -83,24 +83,36 @@ describe('tqueue', function() {
 			q.push(1);
 			q.push(2);
 			q.push(3);
+			q.push(4);
 
 			q.on('pop', function() {
 				switch(i) {
 					case 0:
 				    	d = Date.now();
-						i++;
+						q.delay.should.equal(1000);
 						break;
 					case 1:
-						d = Date.now() - d;
-						d.should.be.within(995, 1005);
-						done();
+						e = Date.now() - d;
+						d = Date.now();
+						e.should.be.within(995, 1005);
+						q.delay.should.equal(1000);
+						q.setDelay(2000);
 						break;
 					case 2:
-						d = Date.now() - d;
-						d.should.be.within(1995, 2005);
+						e = Date.now() - d;
+						d = Date.now();
+						e.should.be.within(1995, 2005);
+						q.delay.should.equal(2000);
+						q.setDelay(3000);
+						break;
+					case 3:
+						e = Date.now() - d;
+						e.should.be.within(2995, 3005);
+						q.delay.should.equal(3000);
 						done();
 						break;
 				}
+				i++;
 			});
 		});
 	});
